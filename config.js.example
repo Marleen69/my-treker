@@ -1,0 +1,14 @@
+// Пример файла конфигурации
+// Скопируйте этот файл как config.js и заполните своими данными
+
+const CONFIG = {
+    // Client ID из Google Cloud Console (OAuth 2.0)
+    CLIENT_ID: 'ваш-client-id.apps.googleusercontent.com',
+    
+    // API Key из Google Cloud Console
+    API_KEY: 'ваш-api-key',
+    
+    // ID вашей Google Таблицы (можно оставить пустым и ввести в интерфейсе)
+    SPREADSHEET_ID: ''
+};
+

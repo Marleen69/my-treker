@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Трекер Привычек</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://accounts.google.com/gsi/client"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Загрузите config.js если он существует (создайте из config.js.example) -->
+    <script src="config.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="monthTitle">NOVEMBER</h1>
+            <div class="stats-header">
+                <div class="stat-item">
+                    <span class="stat-label">Количество привычек:</span>
+                    <span class="stat-value" id="habitCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Выполнено сегодня:</span>
+                    <span class="stat-value" id="completedToday">0</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="auth-section" id="authSection">
+            <h2>Настройка синхронизации (опционально)</h2>
+            <p>Вы можете использовать приложение прямо сейчас - данные сохраняются в браузере.</p>
+            <p style="margin-top: 10px; color: var(--text-secondary);">Для синхронизации с Google Sheets настройте подключение ниже:</p>
+            <div id="g_id_onload" data-client_id="" data-callback="handleCredentialResponse"></div>
+            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
+            <div class="manual-config">
+                <h3>Или введите ID таблицы вручную:</h3>
+                <input type="text" id="spreadsheetId" placeholder="ID вашей Google Таблицы">
+                <button onclick="setSpreadsheetId()">Сохранить ID</button>
+                <p style="margin-top: 15px; font-size: 0.9em; color: var(--text-secondary);">
+                    Не знаете ID? Откройте вашу Google Таблицу и скопируйте часть URL между <code>/d/</code> и <code>/edit</code>
+                </p>
+            </div>
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+                <button class="btn-add" onclick="skipAuth()" style="width: 100%; max-width: 300px;">Пропустить и начать использовать</button>
+            </div>
+        </div>
+
+        <div class="main-content" id="mainContent" style="display: none;">
+            <div id="loadingIndicator" class="loading" style="display: none;">Загрузка данных...</div>
+            <div class="habits-section">
+                <div class="section-header">
+                    <h2>Привычки</h2>
+                    <button class="btn-add" onclick="addHabit()">+ Добавить привычку</button>
+                </div>
+                <div id="habitsList" class="habits-list"></div>
+            </div>
+
+            <div class="statistics-section">
+                <h2>Статистика</h2>
+                <div class="chart-container">
+                    <canvas id="completionChart"></canvas>
+                </div>
+                <div class="daily-stats" id="dailyStats"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+

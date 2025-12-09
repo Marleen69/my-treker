@@ -1,0 +1,439 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #34a853;
+    --secondary-color: #4285f4;
+    --background: #f5f5f5;
+    --card-background: #ffffff;
+    --text-primary: #202124;
+    --text-secondary: #5f6368;
+    --border-color: #dadce0;
+    --shadow: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-hover: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    background: var(--card-background);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.stats-header {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+}
+
+.stat-value {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.auth-section {
+    background: var(--card-background);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-section h2 {
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.auth-section p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.manual-config {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+}
+
+.manual-config h3 {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: var(--text-primary);
+}
+
+.manual-config input {
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1em;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 10px;
+}
+
+.manual-config input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.manual-config code {
+    background: var(--background);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    color: var(--primary-color);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.habits-section,
+.statistics-section {
+    background: var(--card-background);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.section-header h2 {
+    color: var(--text-primary);
+    font-size: 1.8em;
+}
+
+.btn-add {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn-add:hover {
+    background: #2d8f47;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.habits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.habit-item {
+    background: var(--background);
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.habit-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow);
+}
+
+.habit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.habit-name {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--text-primary);
+    flex: 1;
+    min-width: 200px;
+}
+
+.habit-name input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.habit-name input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.btn-delete {
+    background: #ea4335;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.btn-delete:hover {
+    background: #d33b2c;
+}
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    gap: 10px;
+}
+
+.day-checkbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.day-checkbox label {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.day-checkbox input[type="checkbox"] {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.chart-container {
+    margin: 30px 0;
+    position: relative;
+    height: 300px;
+}
+
+.daily-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.stat-card {
+    background: var(--background);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid var(--border-color);
+}
+
+.stat-card-day {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.stat-card-value {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .stats-header {
+        gap: 20px;
+    }
+
+    .stat-value {
+        font-size: 1.5em;
+    }
+
+    .habits-section,
+    .statistics-section {
+        padding: 20px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-add {
+        width: 100%;
+    }
+
+    .days-grid {
+        grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+        gap: 8px;
+    }
+
+    .daily-stats {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+}
+
+/* Адаптивность для мобильных телефонов */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .stats-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .stat-value {
+        font-size: 1.8em;
+    }
+
+    .auth-section {
+        padding: 25px 15px;
+    }
+
+    .habits-section,
+    .statistics-section {
+        padding: 15px;
+    }
+
+    .section-header h2 {
+        font-size: 1.4em;
+    }
+
+    .habit-item {
+        padding: 15px;
+    }
+
+    .habit-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .habit-name {
+        min-width: 100%;
+    }
+
+    .days-grid {
+        grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+        gap: 6px;
+    }
+
+    .day-checkbox input[type="checkbox"] {
+        width: 24px;
+        height: 24px;
+    }
+
+    .day-checkbox label {
+        font-size: 0.75em;
+    }
+
+    .chart-container {
+        height: 250px;
+        margin: 20px 0;
+    }
+
+    .daily-stats {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 12px;
+    }
+
+    .stat-card-value {
+        font-size: 1.2em;
+    }
+}
+
+/* Стили для загрузки */
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-secondary);
+}
+
+.loading::after {
+    content: '...';
+    animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
