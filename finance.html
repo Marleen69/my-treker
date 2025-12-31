@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Финансовый Трекер</title>
+    <link rel="stylesheet" href="fin.css">
+</head>
+<body>
+
+    <nav class="page-nav">
+        <button class="nav-btn" onclick="window.location.href='index.html'">Привычки</button>
+        <button class="nav-btn active">Финансы</button>
+    </nav>
+
+    <div class="container">
+        <h2>Учет Финансов</h2>
+
+        <div class="balance-box">
+            <span style="color: #5f6368;">Текущий баланс</span>
+            <span id="totalBalance" class="balance-amount">0</span>
+            <small>сом</small>
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="desc" placeholder="На что потратили / доход">
+            <input type="number" id="amount" placeholder="Сумма">
+            <select id="type">
+                <option value="income">Доход (+)</option>
+                <option value="expense">Расход (-)</option>
+            </select>
+            <button class="btn-main" onclick="addTransaction()">Добавить запись</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Описание</th>
+                    <th>Сумма</th>
+                    <th style="text-align: right;">Удалить</th>
+                </tr>
+            </thead>
+            <tbody id="list"></tbody>
+        </table>
+    </div>
+
+<script src="fin.js"> </script>
+
+</body>
+</html>

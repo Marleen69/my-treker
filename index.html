@@ -8,11 +8,43 @@
     <script src="https://apis.google.com/js/api.js"></script>
     <script src="https://accounts.google.com/gsi/client"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Загрузите config.js если он существует (создайте из config.js.example) -->
     <script src="config.js" defer></script>
+    
+    <style>
+        /* Добавим немного стиля для кнопок навигации, чтобы они вписались в твой дизайн */
+        .page-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        .nav-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            font-weight: 500;
+            color: #555;
+            transition: 0.3s;
+        }
+        .nav-btn.active {
+            background-color: #28a745; /* Зеленый как в твоем дизайне */
+            color: white;
+        }
+        .nav-btn:hover:not(.active) {
+            background-color: #e0e0e0;
+        }
+    </style>
 </head>
 <body>
+    
     <div class="container">
+        <nav class="page-nav">
+            <button class="nav-btn active">Привычки</button>
+            <button class="nav-btn" onclick="window.location.href='finance.html'">Финансы</button>
+        </nav>
+
         <header>
             <h1 id="monthTitle">NOVEMBER</h1>
             <div class="stats-header">
@@ -69,4 +101,3 @@
     <script src="app.js"></script>
 </body>
 </html>
-
